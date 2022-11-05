@@ -36,8 +36,11 @@ const Header = () => {
       <button className="btn-ghost btn" onClick={() => router.push("/")}>
         List
       </button>
-      <button className="btn-ghost btn" onClick={() => router.push("/a")}>
-        Page 2
+      <button
+        className="btn-ghost btn"
+        onClick={() => router.push("/draganddrop")}
+      >
+        Drag and drop
       </button>
       <button className="btn-ghost btn" onClick={() => router.push("/tabs")}>
         Tabs

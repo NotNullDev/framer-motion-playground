@@ -72,26 +72,40 @@ export default function A() {
             console.log(e);
           }}
           ref={ref}
+          onDragStart={(e) => {
+            if (e.currentTarget) currentDrag.current = e.currentTarget;
+            toast("drag start");
+          }}
         >
           <button className="sm glass btn"> Im free!</button>
         </motion.div>
 
         <div className="flex gap-10">
           <motion.div
-            onDrop={(e) => {
-              e.preventDefault();
-              toast("drop!");
-            }}
             onDragOver={(e) => {
               e.preventDefault();
             }}
             onDragEnter={() => {
               toast("drag over");
             }}
-            className="h-[300px] w-[300px] bg-base-200"
+            onDrop={(e) => {
+              toast("drop!");
+              console.log("drop");
+              console.dir(e);
+              console.log("saved current drag:");
+              console.dir(currentDrag.current);
+              if (currentDrag.current) {
+                currentDrag.current.parentNode?.removeChild(
+                  currentDrag.current
+                );
+                e.currentTarget.appendChild(currentDrag.current);
+              }
+            }}
+            className="flex h-[300px] w-[300px] flex-col gap-3 bg-base-200 py-2"
           >
             <div
               draggable
+              className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
               onDragStart={(e) => {
                 if (e.currentTarget) currentDrag.current = e.currentTarget;
                 toast("drag start");
@@ -101,6 +115,7 @@ export default function A() {
             </div>
             <div
               draggable
+              className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
               onDragStart={(e) => {
                 if (e.currentTarget) currentDrag.current = e.currentTarget;
                 toast("drag start");
@@ -110,6 +125,7 @@ export default function A() {
             </div>
             <div
               draggable
+              className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
               onDragStart={(e) => {
                 if (e.currentTarget) currentDrag.current = e.currentTarget;
                 toast("drag start");
@@ -143,7 +159,7 @@ export default function A() {
               }
             }}
             dragListener
-            className="h-[300px] w-[300px] bg-base-200"
+            className="flex h-[300px] w-[300px] flex-col gap-3 bg-base-200 py-2"
           ></motion.div>
         </div>
       </div>
