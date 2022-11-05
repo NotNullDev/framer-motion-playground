@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <main className="flex flex-1 items-center justify-center">
+      <main className="flex flex-1 items-start justify-center">
         <div className="flex flex-col gap-5">
           <form className="flex gap-3">
             <input
@@ -83,7 +83,7 @@ const TodoItem = ({ todo, removeIdx }: TodoItemProps) => {
         y: [0, 2, -2, 0],
         x: [0, 1, -1, 0],
       }}
-      exit={{ width: 0, opacity: 0 }}
+      exit={{ height: 0, padding: 0, opacity: 0 }}
       transition={{ duration: 1 }}
       className="flex max-h-min flex-nowrap items-center justify-between rounded-xl bg-gradient-to-br from-sky-700 to-yellow-700 p-2"
     >
