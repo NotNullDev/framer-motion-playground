@@ -1,7 +1,7 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { useState } from "react";
 
-export default function B() {
+export default function TabsPage() {
   const [selected, setSelected] = useState(0);
 
   return (

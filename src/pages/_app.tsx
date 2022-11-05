@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { type AppType } from "next/dist/shared/lib/utils";
 import { useRouter } from "next/router";
+import { Toaster } from "react-hot-toast";
 
 import "../styles/globals.css";
 
@@ -9,6 +10,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <div className="b flex h-screen w-screen flex-col">
+        <Toaster position="bottom-left" />
         <Header />
         <AnimatePresence mode="wait">
           <motion.div
@@ -37,7 +39,7 @@ const Header = () => {
       <button className="btn-ghost btn" onClick={() => router.push("/a")}>
         Page 2
       </button>
-      <button className="btn-ghost btn" onClick={() => router.push("/b")}>
+      <button className="btn-ghost btn" onClick={() => router.push("/tabs")}>
         Tabs
       </button>
     </div>

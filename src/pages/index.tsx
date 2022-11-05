@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             </button>
           </form>
           <motion.ol className="flex flex-col gap-2">
-            <AnimatePresence>
+            <AnimatePresence mode="sync">
               {todo.map((val, idx) => {
                 return (
                   <TodoItem key={val.id} todo={val} removeIdx={removeIdx} />
@@ -77,13 +77,14 @@ type TodoItemProps = {
 const TodoItem = ({ todo, removeIdx }: TodoItemProps) => {
   return (
     <motion.li
+      key={todo.id}
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
         y: [0, 2, -2, 0],
         x: [0, 1, -1, 0],
       }}
-      exit={{ height: 0, padding: 0, opacity: 0 }}
+      exit={{ height: 0, padding: 0, margin: 0, opacity: 0 }}
       transition={{ duration: 1 }}
       className="flex max-h-min flex-nowrap items-center justify-between rounded-xl bg-gradient-to-br from-sky-700 to-yellow-700 p-2"
     >
