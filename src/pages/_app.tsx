@@ -17,13 +17,13 @@ const Header = () => {
   return (
     <div className="flex gap-3 p-4">
       <button className="btn-ghost btn" onClick={() => router.push("/")}>
-        Page 1
+        List
       </button>
       <button className="btn-ghost btn" onClick={() => router.push("/a")}>
         Page 2
       </button>
       <button className="btn-ghost btn" onClick={() => router.push("/b")}>
-        Page 3
+        Tabs
       </button>
     </div>
   );
