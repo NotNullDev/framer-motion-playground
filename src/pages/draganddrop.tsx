@@ -79,7 +79,8 @@ const DragDropNative = () => {
           }}
           className="flex h-[300px] w-[300px] flex-col gap-3 bg-base-200 py-2"
         >
-          <div
+          <motion.div
+            layoutId={"1"}
             draggable
             className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
             onDragStart={(e) => {
@@ -88,8 +89,9 @@ const DragDropNative = () => {
             }}
           >
             Item 1
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            layoutId={"2"}
             draggable
             className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
             onDragStart={(e) => {
@@ -98,8 +100,9 @@ const DragDropNative = () => {
             }}
           >
             Item 2
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            layoutId={"3"}
             draggable
             className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
             onDragStart={(e) => {
@@ -108,7 +111,7 @@ const DragDropNative = () => {
             }}
           >
             Item 3
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div

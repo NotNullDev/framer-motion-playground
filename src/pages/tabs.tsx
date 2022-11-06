@@ -18,7 +18,7 @@ export default function TabsPage() {
                 <motion.div
                   className="absolute top-0 left-0 h-[1px] h-full w-full w-full rounded-xl bg-indigo-600 bg-opacity-20"
                   layoutId="tab-underline"
-                  transition={{ duration: 0.5 }}
+                  transition={{ type: "spring", damping: 30, stiffness: 500 }}
                 />
               )}
             </motion.div>
@@ -31,7 +31,7 @@ export default function TabsPage() {
                 <motion.div
                   className="absolute top-0 left-0 h-[1px] h-full w-full w-full rounded-xl bg-indigo-600 bg-opacity-20"
                   layoutId="tab-underline"
-                  transition={{ duration: 0.5 }}
+                  transition={{ type: "spring", damping: 30, stiffness: 500 }}
                 />
               )}
             </motion.div>
@@ -44,7 +44,7 @@ export default function TabsPage() {
                 <motion.div
                   className="absolute top-0 left-0 h-[1px] h-full w-full w-full rounded-xl bg-indigo-600 bg-opacity-20"
                   layoutId="tab-underline"
-                  transition={{ duration: 0.5 }}
+                  transition={{ type: "spring", damping: 30, stiffness: 500 }}
                 />
               )}
             </motion.div>
