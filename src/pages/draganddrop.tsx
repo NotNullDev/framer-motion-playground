@@ -1,4 +1,4 @@
-import { motion, Reorder, useInView } from "framer-motion";
+import { AnimateSharedLayout, motion, Reorder, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -14,10 +14,46 @@ export default function A() {
       <div className="flex gap-40">
         <SimpleReorderList />
         <DragDropNative />
+        <DragDrop />
       </div>
     </div>
   );
 }
+
+const DragDrop = () => {
+  const [selected, setSelected] = useState("left");
+  return (
+    <div>
+      <AnimateSharedLayout>
+        <div className="flex gap-4">
+          <div className="h-[300px] w-[300px] bg-sky-600 bg-opacity-50 p-10">
+            {selected === "left" && (
+              <motion.div
+                layoutId="drag-element"
+                className="h-[100px] w-[100px] bg-indigo-600"
+                drag
+                dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
+                dragElastic={1}
+              ></motion.div>
+            )}
+          </div>
+
+          <div className="h-[300px] w-[300px] bg-sky-600 bg-opacity-50 p-10">
+            {selected === "right" && (
+              <motion.div
+                layoutId="drag-element"
+                className="h-[100px] w-[100px] bg-indigo-600"
+                drag
+                dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
+                dragElastic={1}
+              ></motion.div>
+            )}
+          </div>
+        </div>
+      </AnimateSharedLayout>
+    </div>
+  );
+};
 
 const DragDropNative = () => {
   const currentDrag = useRef<HTMLDivElement>(null);

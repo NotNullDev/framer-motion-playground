@@ -1,8 +1,8 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { type NextPage } from "next";
 import { useEffect, useRef, useState } from "react";
 
-type Todo = {
+export type Todo = {
   id: number;
   content: string;
 };
@@ -55,15 +55,35 @@ const Home: NextPage = () => {
               Add
             </button>
           </form>
-          <motion.ol className="flex flex-col gap-2">
-            <AnimatePresence mode="sync">
-              {todo.map((val, idx) => {
-                return (
-                  <TodoItem key={val.id} todo={val} removeIdx={removeIdx} />
-                );
-              })}
-            </AnimatePresence>
-          </motion.ol>
+          <div className="flex gap-10">
+            <motion.ol className="flex flex-col gap-2">
+              <AnimatePresence mode="sync">
+                {todo.map((val, idx) => {
+                  return (
+                    <TodoItem key={val.id} todo={val} removeIdx={removeIdx} />
+                  );
+                })}
+              </AnimatePresence>
+            </motion.ol>
+            <AnimateSharedLayout>
+              <div className="flex flex-col gap-4">
+                <AnimatePresence>
+                  {todo.map((t) => (
+                    <motion.div
+                      key={t.id}
+                      onClick={() => removeIdx(t.id)}
+                      className="bg-base-200 p-4 "
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      {t.content}
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </AnimateSharedLayout>
+          </div>
         </div>
       </main>
     </>

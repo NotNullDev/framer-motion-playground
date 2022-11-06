@@ -45,6 +45,12 @@ const Header = () => {
       <button className="btn-ghost btn" onClick={() => router.push("/tabs")}>
         Tabs
       </button>
+      <button
+        className="btn-ghost btn"
+        onClick={() => router.push("/autoanimate")}
+      >
+        Auto animate
+      </button>
     </div>
   );
 };
