@@ -56,7 +56,7 @@ const DragDrop = () => {
 };
 
 const DragDropNative = () => {
-  const currentDrag = useRef<HTMLDivElement>(null);
+  const currentDrag = useRef<HTMLDivElement | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -86,7 +86,8 @@ const DragDropNative = () => {
         }}
         ref={ref}
         onDragStart={(e) => {
-          if (e.currentTarget) currentDrag.current = e.currentTarget;
+          if (e.currentTarget && currentDrag?.current)
+            currentDrag.current = e.currentTarget as HTMLDivElement;
           toast("drag start");
         }}
         whileDrag={{ scale: "1.2" }}
@@ -120,7 +121,8 @@ const DragDropNative = () => {
             draggable
             className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
             onDragStart={(e) => {
-              if (e.currentTarget) currentDrag.current = e.currentTarget;
+              if (e.currentTarget && currentDrag?.current)
+                currentDrag.current = e.currentTarget as HTMLDivElement;
               toast("drag start");
             }}
           >
@@ -131,7 +133,8 @@ const DragDropNative = () => {
             draggable
             className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
             onDragStart={(e) => {
-              if (e.currentTarget) currentDrag.current = e.currentTarget;
+              if (e.currentTarget && currentDrag?.current)
+                currentDrag.current = e.currentTarget as HTMLDivElement;
               toast("drag start");
             }}
           >
@@ -142,7 +145,8 @@ const DragDropNative = () => {
             draggable
             className="mx-auto w-3/4 cursor-pointer rounded-xl bg-base-100 p-2 "
             onDragStart={(e) => {
-              if (e.currentTarget) currentDrag.current = e.currentTarget;
+              if (e.currentTarget && currentDrag?.current)
+                currentDrag.current = e.currentTarget as HTMLDivElement;
               toast("drag start");
             }}
           >

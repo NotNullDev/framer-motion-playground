@@ -7,8 +7,8 @@ export default function AutoAnimatePage() {
   const [todo, setTodo] = useState<Todo[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [parent] = useAutoAnimate();
-  const [parent2] = useAutoAnimate();
+  const [parent] = useAutoAnimate<HTMLDivElement>();
+  const [parent2] = useAutoAnimate<HTMLDivElement>();
   const [showMore, setShowMore] = useState(false);
 
   const removeIdx = (idx: number) => {
